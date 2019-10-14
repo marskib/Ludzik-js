@@ -1,8 +1,10 @@
+/* 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+ */
 
 html {
     --szer-ski: 70vw;
@@ -27,9 +29,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     background-color: #aaa;
-
     padding-top:10px;
-
 }
 
 .czlonek {
@@ -42,11 +42,11 @@ div {
     position: absolute;
     /* background-color: maroon; */
     background-color: #888;
-    border:1px solid black;
+    /* border:1px solid black; */
     
     cursor: pointer;
 
-    box-shadow: 5px 5px grey;
+    /* box-shadow: 5px 5px grey; */
 }
 
 div#glowa {
@@ -54,15 +54,17 @@ div#glowa {
     width: var(--dglowa);
     height: var(--dglowa);
     border-radius: 50%;
-    border: 10px solid black;
+    /* border: 10px solid black; */
+    box-sizing: border-box;
+    border-top: 15px solid #0005;
     z-index: 1;
 }
 
 div#szyja {
-    left: calc(var(--dglowa)*3.1);
-    width: calc(var(--dglowa)/1.3);
-    height: calc(var(--dglowa)/2);
-    top:calc(1*var(--dglowa));
+    left: calc(var(--dglowa)*3.155);
+    width: calc(var(--dglowa)/1.5);
+    height: calc(var(--dglowa)/2.25);
+    top:calc(1*var(--dglowa) + 5px );
 }
 
 div#brzuch {
@@ -71,6 +73,7 @@ div#brzuch {
     width: calc(var(--dglowa)*2);
     height: calc(var(--dglowa)*1.5);
     z-index: 1;
+    margin-left:2px;
 }
 
 div#preka {
@@ -84,18 +87,22 @@ div#lreka {
     top: calc(var(--dglowa)*1.5);
     width: calc(var(--dglowa)*1.5);
     height: calc(var(--dglowa)/2);
+    margin-left:4px;
 }
 
 div#pnoga {
-    left: calc(var(--dglowa)*2.5);
+    left: calc(var(--dglowa)*2.51 + 1px);
     top: calc(var(--dglowa)*3);
     width: calc(var(--dglowa)/1.4);
     height: calc(var(--dglowa)*1.5);
+    margin-top:2px;
 }
 
 div#lnoga {
-    left: calc(var(--dglowa)*3.783);
+    left: calc(var(--dglowa)*3.8);
     top: calc(var(--dglowa)*3);
     width: calc(var(--dglowa)/1.4);
     height: calc(var(--dglowa)*1.5);
+    margin-top:2px;
+
 }
