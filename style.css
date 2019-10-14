@@ -9,9 +9,11 @@
 html {
     --szer-ski: 70vw;
     --wys-ski: 90vh;
-
     /* srednica glowy: */
     --dglowa: calc(var(--szer-ski)/7);
+
+    --bgcr-ski :#888;
+    --bgcr-ski2:#788;
 
 
     font-family: Verdana, Arial, sans-serif;
@@ -32,21 +34,21 @@ body {
     padding-top:10px;
 }
 
-.czlonek {
-    /* border-radius: 1%; */
-    /* outline-style: outset; */
-    /* outline-color: maroon; */
-}
+
 
 div {
     position: absolute;
-    /* background-color: maroon; */
     background-color: #888;
-    /* border:1px solid black; */
-    
     cursor: pointer;
 
-    /* box-shadow: 5px 5px grey; */
+    /* box-shadow: 2px 2px grey; */
+
+    transition: .3s;
+}
+
+div:hover {
+    /* background-color: calc(var(--bgcr-ski)); */
+    background-color: var(--bgcr-ski2);
 }
 
 div#glowa {
@@ -105,4 +107,11 @@ div#lnoga {
     height: calc(var(--dglowa)*1.5);
     margin-top:2px;
 
+}
+
+.czlonek {
+    /* border-radius: 1%; */
+    /* outline-style: outset; */
+    /* outline-color: maroon; */
+    /* border-style: outset; */
 }
