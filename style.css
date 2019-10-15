@@ -78,6 +78,52 @@ div#brzuch {
     margin-left: 2px;
 }
 
+
+div p {
+    font-weight: bolder;
+}
+
+div#brzuch p, div#lnoga p, div#pnoga p {
+    font-size: 2.5em;
+    line-height: calc(var(--dglowa)*1.0);
+}
+
+div#lreka p, div#preka p {
+    font-size: 2.5em;
+    line-height: 0.3em;
+}
+
+div#szyja p {
+    font-size: 2.3em;
+    line-height: 0.1em;
+}
+
+div#glowa p {
+    margin-top:10px;
+}
+
+
+
+@media (max-width:1024px) {
+ 
+    div#brzuch p, div#lnoga p, div#pnoga p {
+        font-size: 1em;
+    }
+
+    div#lreka p, div#preka p {
+        font-size: 1em;
+        line-height: 0.1em;
+    }
+
+    div#szyja p {
+        font-size: 1em;
+        line-height: 0.005em;
+    }
+
+}
+
+
+
 div#preka {
     left: calc(var(--dglowa)/1);
     top: calc(var(--dglowa)*1.5);
