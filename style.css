@@ -33,22 +33,18 @@ body {
 
 div {
     position: absolute;
-    background-color: #888;
-    cursor: pointer;
-    /* box-shadow: 2px 2px grey; */
-    transition: .3s;
-
     text-align: center;
+    cursor: pointer;
+    background-color: #888;
+    transition: .3s;
 }
 
 @media (min-width:1024px) {
     div:hover {
         background-color: var(--bgcr-ski2);
-    box-shadow: 1px 1px grey;
-
+        box-shadow: 1px 1px grey;
     }
 }
-
 
 div#glowa {
     left: calc(var(--dglowa)*3);
@@ -78,7 +74,6 @@ div#brzuch {
     margin-left: 2px;
 }
 
-
 div p {
     font-weight: bolder;
 }
@@ -99,30 +94,22 @@ div#szyja p {
 }
 
 div#glowa p {
-    margin-top:10px;
+    margin-top: 10px;
 }
 
-
-
 @media (max-width:1024px) {
- 
     div#brzuch p, div#lnoga p, div#pnoga p {
         font-size: 1em;
     }
-
     div#lreka p, div#preka p {
         font-size: 1em;
         line-height: 0.1em;
     }
-
     div#szyja p {
         font-size: 1em;
         line-height: 0.005em;
     }
-
 }
-
-
 
 div#preka {
     left: calc(var(--dglowa)/1);
@@ -156,26 +143,23 @@ div#lnoga {
 }
 
 .czlonek {
+    /* wszystko, oprócz głowy */
     border-radius: 5px;
-  }
+}
 
+/* Pojawia się napis zalecający zmianę orientacji przy wąskich urządzeniach: */
 
+div#ostrzezenie {
+    display: none;
+}
 
-
-  div#ostrzezenie {
-      background-color: red;
-      left:30%;
-      right:30%;
-      bottom:0;
-      font-size: 1em;;
-  }
-
-/* 
- @media (max-width:1024px)  and (orientation: portrait) {
-    p#ostrzezenie {
-        display:block;
+@media (max-width:800px) and (orientation: portrait) {
+    div#ostrzezenie {
+        display: block;
+        background-color: red;
+        left: 25%;
+        right: 25%;
+        bottom: 0;
+        font-size: 1em;
     }
-
-} 
-
-*/
+}
