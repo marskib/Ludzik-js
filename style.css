@@ -157,8 +157,25 @@ div#lnoga {
 
 .czlonek {
     border-radius: 5px;
-    /* border-radius: 1%; */
-    /* outline-style: outset; */
-    /* outline-color: maroon; */
-    /* border-style: outset; */
-}
+  }
+
+
+
+
+  div#ostrzezenie {
+      background-color: red;
+      left:30%;
+      right:30%;
+      bottom:0;
+      font-size: 1em;;
+  }
+
+/* 
+ @media (max-width:1024px)  and (orientation: portrait) {
+    p#ostrzezenie {
+        display:block;
+    }
+
+} 
+
+*/
