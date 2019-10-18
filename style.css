@@ -1,18 +1,21 @@
-/* 
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
- */
+
 
 html {
     --szer-ski: 70vw;
     --wys-ski: 90vh;
+    --neck-adjust: 9px;
     /* srednica glowy: */
     --dglowa: calc(var(--szer-ski)/7);
-    --bgcr-ski: #888;
+    /**/
+    --bgcr-ski:  #888;
     --bgcr-ski2: #788;
+    /**/
     font-family: Verdana, Arial, sans-serif;
 }
 
@@ -62,7 +65,8 @@ div#szyja {
     left: calc(var(--dglowa)*3.155);
     width: calc(var(--dglowa)/1.5);
     height: calc(var(--dglowa)/2.25);
-    top: calc(1*var(--dglowa) + 5px);
+    /* top: calc(1*var(--dglowa) + 5px + 4px); */
+    top: calc(1*var(--dglowa) + var(--neck-adjust));
 }
 
 div#brzuch {
@@ -76,16 +80,20 @@ div#brzuch {
 
 div p {
     font-weight: bolder;
+    
 }
 
 div#brzuch p, div#lnoga p, div#pnoga p {
     font-size: 2.5em;
-    line-height: calc(var(--dglowa)*1.0);
+    vertical-align: middle;
+}
+
+p {
+    display:none;
 }
 
 div#lreka p, div#preka p {
     font-size: 2.5em;
-    line-height: 0.3em;
 }
 
 div#szyja p {
@@ -108,6 +116,10 @@ div#glowa p {
     div#szyja p {
         font-size: 1em;
         line-height: 0.005em;
+    }
+
+    :root {
+        --neck-adjust: 2px;
     }
 }
 
@@ -147,19 +159,29 @@ div#lnoga {
     border-radius: 5px;
 }
 
+div p {
+    height:100%
+}
+
+
 /* Pojawia się napis zalecający zmianę orientacji przy wąskich urządzeniach: */
 
 div#ostrzezenie {
     display: none;
+    transition: 2s;
 }
 
 @media (max-width:800px) and (orientation: portrait) {
     div#ostrzezenie {
         display: block;
-        background-color: red;
+        background-color: #fff;
+        color:darkred;
+        font-weight: bold;
         left: 25%;
         right: 25%;
-        bottom: 0;
+        
+
+        top: calc( calc(var(--dglowa)*3) + calc(var(--dglowa)*1.5) + 20px );
         font-size: 1em;
     }
 }

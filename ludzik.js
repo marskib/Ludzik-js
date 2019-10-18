@@ -1,4 +1,7 @@
 "use strict";
+
+
+
 let handleKlikOnCzlonek = function (event) {
     var nazwa = event.target.id.toString();
     var nazwaOK = oczyscNazwe(nazwa); //lreka -> reka itd...
@@ -34,4 +37,9 @@ let glowa = document.getElementById("glowa");
 glowa.onclick = handleKlikOnCzlonek;
 
 
+let warning = document.getElementById('ostrzezenie');
+// setTimeout(() => {warning.style.display = "none"}, 2000);
+setTimeout(() => {warning.style.backgroundColor = "transparent";
+                  warning.style.color = "transparent";},
+                  4000);
 
