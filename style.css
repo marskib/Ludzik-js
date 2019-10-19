@@ -9,11 +9,11 @@
 html {
     --szer-ski: 70vw;
     --wys-ski: 90vh;
-    --neck-adjust: 9px;
-    /* srednica glowy: */
+    --neck-adjust: 6px;
+    /* Srednica glowy: */
     --dglowa: calc(var(--szer-ski)/7);
-    /**/
-    --bgcr-ski:  #888;
+
+    /* Kolor ludzika: */
     --bgcr-ski2: #788;
     /**/
     font-family: Verdana, Arial, sans-serif;
@@ -30,7 +30,7 @@ body {
     margin-top: calc(calc(100vh - var(--wys-ski))/2);
     margin-left: auto;
     margin-right: auto;
-    background-color: #aaa;
+    /* background-color: #aaa; */ 
     padding-top: 10px;
 }
 
@@ -42,6 +42,7 @@ div {
     transition: .3s;
 }
 
+/* hover tylko na stacjonarnych: */
 @media (min-width:1024px) {
     div:hover {
         background-color: var(--bgcr-ski2);
@@ -78,46 +79,8 @@ div#brzuch {
     margin-left: 2px;
 }
 
-div p {
-    font-weight: bolder;
-    
-}
-
-div#brzuch p, div#lnoga p, div#pnoga p {
-    font-size: 2.5em;
-    vertical-align: middle;
-}
-
-p {
-    display:none;
-}
-
-div#lreka p, div#preka p {
-    font-size: 2.5em;
-}
-
-div#szyja p {
-    font-size: 2.3em;
-    line-height: 0.1em;
-}
-
-div#glowa p {
-    margin-top: 10px;
-}
 
 @media (max-width:1024px) {
-    div#brzuch p, div#lnoga p, div#pnoga p {
-        font-size: 1em;
-    }
-    div#lreka p, div#preka p {
-        font-size: 1em;
-        line-height: 0.1em;
-    }
-    div#szyja p {
-        font-size: 1em;
-        line-height: 0.005em;
-    }
-
     :root {
         --neck-adjust: 2px;
     }
@@ -154,13 +117,9 @@ div#lnoga {
     margin-top: 2px;
 }
 
+/* Wszystko, oprócz głowy: */
 .czlonek {
-    /* wszystko, oprócz głowy */
     border-radius: 5px;
-}
-
-div p {
-    height:100%
 }
 
 
@@ -177,10 +136,8 @@ div#ostrzezenie {
         background-color: #fff;
         color:darkred;
         font-weight: bold;
-        left: 25%;
-        right: 25%;
-        
-
+        left: 5%;
+        right: 5%;
         top: calc( calc(var(--dglowa)*3) + calc(var(--dglowa)*1.5) + 20px );
         font-size: 1em;
     }
