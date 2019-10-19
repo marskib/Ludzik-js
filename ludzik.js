@@ -6,7 +6,7 @@ let handleKlikOnCzlonek = function (event) {
     var nazwa = event.target.id.toString();
     var nazwaOK = oczyscNazwe(nazwa); //lreka -> reka itd...
     odegrajNazwe(nazwaOK, 500);
-    kolorEfekt(event.target, 700);
+    kolorEfekt(event.target, 1200);
 }
 
 function oczyscNazwe(nazwa) {
@@ -27,7 +27,13 @@ function kolorEfekt(elem, delay) {
 /* Na chwile zmiana koloru */    
     var kolorOrig = elem.style.backgroundColor;
     elem.style.backgroundColor = "maroon";
-    setTimeout(()=>elem.style.backgroundColor=kolorOrig, delay);
+    // setTimeout(()=>elem.style.backgroundColor=kolorOrig, delay);
+
+    //Powrot starego koloru - lepiej jest przejechac sie po wszystkim, bo jak naklika za duzo, to maroon zostaje:
+    setTimeout(()=> {
+        [...czlonki].forEach(czlonek=>czlonek.style.backgroundColor = kolorOrig);
+        glowa.style.backgroundColor = kolorOrig;
+    } ,delay);
 }
 
 let czlonki = document.querySelectorAll('.czlonek');
