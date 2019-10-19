@@ -51,6 +51,7 @@ div {
 }
 
 div#glowa {
+    position: relative;
     left: calc(var(--dglowa)*3);
     width: var(--dglowa);
     height: var(--dglowa);
@@ -60,6 +61,18 @@ div#glowa {
     border-top: 15px solid #0005;
     border-bottom: 1px solid black;
     z-index: 1;
+}
+
+div#usta {
+    display:none; /*na razie wylaczone*/
+    position:absolute;
+    left:30%;
+    right:30%;
+    top:40%;
+    bottom:20%;
+    border-radius: 50%;
+    border-bottom: 15px solid #0005;
+    background-color: #fff;
 }
 
 div#szyja {
