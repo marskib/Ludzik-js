@@ -1,5 +1,24 @@
 "use strict";
 
+let czlonki = [];
+let glowa = null;
+
+window.onload = init;
+
+function init() {
+    czlonki = document.querySelectorAll('.czlonek');
+    [...czlonki].forEach(czlonek => czlonek.onclick = handleKlikOnCzlonek);
+    //Glowa nie dostala klasy '.czlonek', wiec minimalnie inne potraktowanie:
+    glowa = document.getElementById("glowa");
+    glowa.onclick = handleKlikOnCzlonek;
+    
+    //Jesli mobilne - ostrzezenie o waskim ekranie:
+    var warning = document.getElementById('ostrzezenie');
+    setTimeout(() => {
+        warning.style.backgroundColor = "transparent";
+        warning.style.color = "transparent";
+    }, 4000);
+}
 
 
 let handleKlikOnCzlonek = function (event) {
@@ -7,6 +26,14 @@ let handleKlikOnCzlonek = function (event) {
     var nazwaOK = oczyscNazwe(nazwa); //lreka -> reka itd...
     odegrajNazwe(nazwaOK, 500);
     kolorEfekt(event.target, 1200);
+
+    blokujKlikanie(event.target, 2000);
+}
+
+function blokujKlikanie(naElemencie, naCzas) {
+    /* Zabezpieczenie przed wscieklym klikaniem */
+    naElemencie.onclick = null;
+    setTimeout(() => naElemencie.onclick = handleKlikOnCzlonek, naCzas);
 }
 
 function oczyscNazwe(nazwa) {
@@ -24,11 +51,10 @@ function odegrajNazwe(nazwa, delay) {
 }
 
 function kolorEfekt(elem, delay) {
-    /* Na chwile zmiana koloru i ukrycie kursora*/
+    /* Na chwile: zmiana koloru i ukrycie kursora*/
     var kolorOrig = elem.style.backgroundColor;
     elem.style.backgroundColor = "maroon";
     elem.style.cursor = "none";
-    // setTimeout(()=>elem.style.backgroundColor=kolorOrig, delay);
     //
     //Powrot starego koloru - lepiej jest przejechac sie po wszystkim, bo jak naklika za duzo, to maroon zostaje:
     setTimeout(() => {
@@ -39,18 +65,5 @@ function kolorEfekt(elem, delay) {
 }
 
 
-let czlonki = document.querySelectorAll('.czlonek');
-[...czlonki].forEach(czlonek => czlonek.onclick = handleKlikOnCzlonek);
-//Glowa nie dostala klasy '.czlonek', wiec minimalnie inne potraktowanie:
-let glowa = document.getElementById("glowa");
-glowa.onclick = handleKlikOnCzlonek;
 
-
-let warning = document.getElementById('ostrzezenie');
-// setTimeout(() => {warning.style.display = "none"}, 2000);
-setTimeout(() => {
-    warning.style.backgroundColor = "transparent";
-    warning.style.color = "transparent";
-},
-    4000);
 
