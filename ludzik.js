@@ -26,14 +26,27 @@ let handleKlikOnCzlonek = function (event) {
     var nazwaOK = oczyscNazwe(nazwa); //lreka -> reka itd...
     odegrajNazwe(nazwaOK, 500);
     kolorEfekt(event.target, 1200);
-
-    blokujKlikanie(event.target, 2000);
+    //
+    blokujKlikanie(2000);
 }
 
-function blokujKlikanie(naElemencie, naCzas) {
+function blokujKlikanie(naCzas) {
     /* Zabezpieczenie przed wscieklym klikaniem */
-    naElemencie.onclick = null;
-    setTimeout(() => naElemencie.onclick = handleKlikOnCzlonek, naCzas);
+
+    //Wylaczenie handlerow, ukrycie kursora:
+    [...czlonki].forEach(czlonek => czlonek.onclick = null);
+    [...czlonki].forEach(czlonek => czlonek.style.cursor = "none");
+    glowa.onclick = null;
+    glowa.style.cursor = "none";
+
+    //Handlery i kursor wracaja:
+    setTimeout(() => {
+        [...czlonki].forEach(czlonek => czlonek.onclick = handleKlikOnCzlonek);
+        glowa.onclick=handleKlikOnCzlonek;
+        //
+        [...czlonki].forEach(czlonek => czlonek.style.cursor = "pointer");
+        glowa.style.cursor = "pointer";
+    },naCzas);
 }
 
 function oczyscNazwe(nazwa) {
@@ -51,17 +64,15 @@ function odegrajNazwe(nazwa, delay) {
 }
 
 function kolorEfekt(elem, delay) {
-    /* Na chwile: zmiana koloru i ukrycie kursora*/
+    /* Na chwile: zmiana koloru */
     var kolorOrig = elem.style.backgroundColor;
     elem.style.backgroundColor = "maroon";
-    elem.style.cursor = "none";
     //
     //Powrot starego koloru - lepiej jest przejechac sie po wszystkim, bo jak naklika za duzo, to maroon zostaje:
     setTimeout(() => {
         [...czlonki].forEach(czlonek => czlonek.style.backgroundColor = kolorOrig);
         glowa.style.backgroundColor = kolorOrig;
     }, delay);
-    setTimeout(() => elem.style.cursor = "pointer", 1.5 * delay);
 }
 
 
